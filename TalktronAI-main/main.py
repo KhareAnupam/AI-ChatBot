@@ -1,6 +1,6 @@
 import os
 
-import pyttsx3
+# import pyttsx3
 import speech_recognition as sr
 import webbrowser
 import openai
@@ -8,9 +8,10 @@ import datetime
 import subprocess
 
 def say(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+    # engine = pyttsx3.init()
+    # engine.say(text)
+    # engine.runAndWait()
+    os.system(f"say {text}")
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -43,6 +44,7 @@ if __name__ == '__main__':
             hour = datetime.datetime.now().strftime('%H')
             min = datetime.datetime.now().strftime('%M')
             say(f'the time is {hour} {min}')
+            print("The time is: ", hour, ":" , min)
         #-----apps-----
         if'open chrome' in query.lower():
             chrome_path=r"C:\Program Files\Google\Chrome\Application\chrome.exe"
